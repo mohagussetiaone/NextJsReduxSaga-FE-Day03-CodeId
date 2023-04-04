@@ -18,6 +18,15 @@ const Create = async (payload: any) => {
     }
 }
 
+const upload = async (payload:any) => {
+    try {
+        const result = await axios.post(`http://localhost:3002/region/upload`, payload)
+        return result
+    } catch (error) {
+        return error
+    }
+}
+
 const Update = async (payload: any) => {
     try {
         const result = await axios.put('http://localhost:3002/region/' + payload.id, payload)
@@ -40,5 +49,6 @@ export default {
     GetData,
     Create,
     Update,
-    findData
+    findData,
+    upload
 }
