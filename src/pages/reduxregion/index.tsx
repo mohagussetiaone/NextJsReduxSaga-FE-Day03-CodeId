@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Region from '../api/Region'
+import Region from '../../api/Region'
 import Layout from '@/component/layout'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetRegionRequest } from '../redux-saga/action/regionAction'
+import { GetRegionRequest } from '../../redux-saga/action/regionAction'
 import FormikRegionCreate from './RegionFormikCreate'
 export default function RegionRedux() {
     const dispatch = useDispatch()
