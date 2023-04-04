@@ -86,7 +86,7 @@ export default function FormikRegionCreate(props: any) {
                 </div>
             </div>
             <div>
-                <button type='submit' onClick={formik.handleSubmit}>Simpan</button>
+                <button type='submit' onClick={() => formik.handleSubmit()}>Simpan</button>
                 <button type='submit' onClick={() => props.setDisplay(false)}>cancel</button>
             </div>
         </div>

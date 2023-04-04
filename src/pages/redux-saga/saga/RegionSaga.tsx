@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects'
 import Region from '@/pages/api/Region'
-import { GetRegionSuccess,GetRegionFailed, AddRegionSuccess, AddRegionFailed } from '../action/regionAction'
+import { GetRegionSuccess, GetRegionFailed, AddRegionSuccess, AddRegionFailed } from '../action/regionAction'
 
-function* handleGetRegion() {
+function* handleGetRegion(): any {
     try {
         const result = yield call(Region.GetData)
         yield put(GetRegionSuccess(result))
@@ -11,14 +11,14 @@ function* handleGetRegion() {
     }
 }
 
-function* handleAddRegion(action:any) {
-    const {payload} = action
+function* handleAddRegion(action: any): any {
+    const { payload } = action
     try {
-        const result = yield call(Region.upload,payload)
+        const result = yield call(Region.upload, payload)
         yield put(AddRegionSuccess(result.data))
     } catch (error) {
         yield put(AddRegionFailed(error))
-        
+
     }
 }
 
