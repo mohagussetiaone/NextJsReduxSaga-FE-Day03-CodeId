@@ -47,7 +47,7 @@ export default function FormikRegionCreate(props: any) {
         <div>
             <div>
                 <label>Region Name</label>
-                <input
+                <input className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
                     type='text'
                     name='name'
                     id='name'
@@ -60,34 +60,31 @@ export default function FormikRegionCreate(props: any) {
                     <label htmlFor="cover-photo" className="block text-sm font-medium leading-6 text-gray-900">
                         Photo
                     </label>
+
                     <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                         {
                             upload === false ?
                                 <>
                                     <span>Kosong</span></> :
                                 <>
-                                    <img src={previewImg} alt='img' />
-                                    <span onClick={onClear}>Remove</span>
+                                    <div>
+                                        <img src={previewImg} alt='img' />
+                                    </div>
+                                    <div>
+                                        <button className="text-red-700 hover:text-white text-xs border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" onClick={onClear}>Remove</button>
+                                    </div>
                                 </>
-
                         }
-                        <div className="text-center">
-                            <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                                <label
-                                    htmlFor="file-upload"
-                                    className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                                >
-                                    <span>Upload a file</span>
-                                    <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={uploadConfig('file')} />
-                                </label>
-                            </div>
-                        </div>
+                    </div>
+                    <div>
+                        <input className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="user_avatar" type="file" onChange={uploadConfig('file')} />
+                        <div className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A profile picture is useful to confirm your are logged into your account</div>
                     </div>
                 </div>
             </div>
             <div>
-                <button type='submit' onClick={() => formik.handleSubmit()}>Simpan</button>
-                <button type='submit' onClick={() => props.setDisplay(false)}>cancel</button>
+                <button type='submit' className="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" onClick={() => formik.handleSubmit()}>Simpan</button>
+                <button type='submit' className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" onClick={() => props.setDisplay(false)}>cancel</button>
             </div>
         </div>
     )

@@ -1,6 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useDispatch, useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
+import { UserSignoutRequest } from '@/redux-saga/action/userAction'
 
 const navigation = [
     { name: 'Dashboard', href: '/', current: true },
@@ -14,6 +17,18 @@ function classNames(...classes: any) {
 }
 
 export default function Header() {
+    const dispatch = useDispatch()
+    const { UserProfile } = useSelector((state: any) => state.userState)
+    const router = useRouter()
+    const logout = () => {
+        dispatch(UserSignoutRequest())
+        router.reload()
+    }
+    useEffect(() => {
+        if (!UserProfile) {
+            router.push('/signin')
+        }
+    }, [UserProfile, router])
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (
@@ -116,7 +131,7 @@ export default function Header() {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="#"
+                                                        onClick={()=> logout()}
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Sign out
