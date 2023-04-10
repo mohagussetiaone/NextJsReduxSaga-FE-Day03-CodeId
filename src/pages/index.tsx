@@ -1,19 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Layout from '@/component/layout'
-
-const inter = Inter({ subsets: ['latin'] })
+import Layout from "@/component/layout";
 
 export default function Home() {
   return (
     <div>
       <Layout>
-        <h1 className="text-3xl font-bold">
-          Hello world!
+        <h1 className="text-3xl font-bold h-[350px] mt-20 ml-6 ">
+          Selamat Datang di Database <b className="text-blue">Sistem Informasi Penjualan!</b>
         </h1>
       </Layout>
     </div>
-  )
+  );
 }
